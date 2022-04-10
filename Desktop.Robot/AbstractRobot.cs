@@ -35,6 +35,7 @@ namespace Desktop.Robot
             var bmp = new Bitmap(screenRect.Width, screenRect.Height, PixelFormat.Format32bppArgb);
             var g = Graphics.FromImage(bmp);
             g.CopyFromScreen(screenRect.Left, screenRect.Top, 0, 0, bmp.Size, CopyPixelOperation.SourceCopy);
+
             return bmp;
         }
 
