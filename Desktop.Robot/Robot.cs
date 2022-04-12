@@ -2,6 +2,7 @@ using System.Drawing;
 using Desktop.Robot.Clicks;
 using System.Runtime.InteropServices;
 using System;
+using System.Drawing.Imaging;
 
 namespace Desktop.Robot
 {
@@ -36,9 +37,9 @@ namespace Desktop.Robot
             robot.Click(click);
         }
 
-        public Image CreateScreenCapture(Rectangle screenRect)
+        public Image CreateScreenCapture(Rectangle screenRect, PixelFormat pixelFormat)
         {
-            return robot.CreateScreenCapture(screenRect);
+            return robot.CreateScreenCapture(screenRect, pixelFormat);
         }
 
         public void Delay(uint ms)
@@ -51,9 +52,9 @@ namespace Desktop.Robot
             return robot.GetMousePosition();
         }
 
-        public Color GetPixelColor(uint x, uint y)
+        public Color GetPixelColor(uint x, uint y, PixelFormat pixelFormat)
         {
-            return robot.GetPixelColor(x, y);
+            return robot.GetPixelColor(x, y, pixelFormat);
         }
 
         public void KeyDown(Key key)

@@ -91,7 +91,5 @@ namespace Desktop.Robot.Windows
 
         [DllImport("user32.dll")]
         private static extern short VkKeyScan(char ch);
-
-
     }
 }

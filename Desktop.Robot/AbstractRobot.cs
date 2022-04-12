@@ -30,19 +30,19 @@ namespace Desktop.Robot
             MouseMove((uint)p.X, (uint)p.Y);
         }
 
-        public virtual Image CreateScreenCapture(Rectangle screenRect)
+        public virtual Image CreateScreenCapture(Rectangle screenRect, PixelFormat pixelFormat)
         {
-            var bmp = new Bitmap(screenRect.Width, screenRect.Height, PixelFormat.Format32bppArgb);
+            var bmp = new Bitmap(screenRect.Width, screenRect.Height, pixelFormat);
             var g = Graphics.FromImage(bmp);
             g.CopyFromScreen(screenRect.Left, screenRect.Top, 0, 0, bmp.Size, CopyPixelOperation.SourceCopy);
 
             return bmp;
         }
 
-        public virtual Color GetPixelColor(uint x, uint y)
+        public virtual Color GetPixelColor(uint x, uint y, PixelFormat pixelFormat)
         {
             var rect = new Rectangle(new Point((int)x, (int)y), new Size(1, 1));
-            return (CreateScreenCapture(rect) as Bitmap).GetPixel(0, 0);
+            return (CreateScreenCapture(rect, pixelFormat) as Bitmap).GetPixel(0, 0);
         }
 
         public void Click(IClick click)

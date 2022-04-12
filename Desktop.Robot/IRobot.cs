@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Drawing.Imaging;
 using Desktop.Robot.Clicks;
 
 namespace Desktop.Robot
@@ -6,8 +7,8 @@ namespace Desktop.Robot
     public interface IRobot
     {
         uint AutoDelay { get; set; }
-        Image CreateScreenCapture(Rectangle screenRect);
-        Color GetPixelColor(uint x, uint y);
+        Image CreateScreenCapture(Rectangle screenRect, PixelFormat pixelFormat);
+        Color GetPixelColor(uint x, uint y, PixelFormat pixelFormat);
         void KeyPress(Key key);
         void KeyPress(char key);
         void KeyDown(Key key);
