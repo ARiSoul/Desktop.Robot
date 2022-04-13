@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace Desktop.Robot.Windows
 {
-    class MonitorInfo
+    public class MonitorInfo
     {
 
         [StructLayout(LayoutKind.Sequential)]
