@@ -33,7 +33,7 @@ namespace Desktop.Robot
         public virtual Image CreateScreenCapture(Rectangle screenRect, PixelFormat pixelFormat)
         {
             var bmp = new Bitmap(screenRect.Width, screenRect.Height, pixelFormat);
-            var g = Graphics.FromImage(bmp);
+            using Graphics g = Graphics.FromImage(bmp);
             g.CopyFromScreen(screenRect.Left, screenRect.Top, 0, 0, bmp.Size, CopyPixelOperation.SourceCopy);
 
             return bmp;
